@@ -3,6 +3,7 @@ import { StarField } from '@/components/StarField';
 import { FloatingPlanet } from '@/components/FloatingPlanet';
 import { InteractiveParticles } from '@/components/InteractiveParticles';
 import { MatrixRain } from '@/components/MatrixRain';
+import { Rotating3DLogo } from '@/components/Rotating3DLogo';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -44,6 +45,8 @@ export default function Index() {
       <MatrixRain />
       <StarField />
       <InteractiveParticles />
+      
+      {scrollY > 100 && scrollY < 1200 && <Rotating3DLogo scrollY={scrollY - 100} />}
       
       <div className="fixed inset-0 pointer-events-none z-0">
         <FloatingPlanet color="#00FF41" size={120} x={8} y={15} delay={0} />
