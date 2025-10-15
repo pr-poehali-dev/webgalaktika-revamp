@@ -13,7 +13,7 @@ export const Navigation = ({ isMenuOpen, setIsMenuOpen, scrollToSection }: Navig
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center space-x-3 hover:scale-105 transition-transform cursor-pointer">
-            <div className="w-12 h-12 rounded-full bg-[#C5E11D] flex items-center justify-center p-1.5">
+            <div className="w-14 h-14 rounded-full bg-[#C5E11D] flex items-center justify-center p-2">
               <img 
                 src="https://cdn.poehali.dev/files/fbeb2eff-89d9-4c41-a52b-8e4e05e28488.png" 
                 alt="WebGalaktika" 
