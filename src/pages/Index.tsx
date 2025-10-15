@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { StarField } from '@/components/StarField';
 import { FloatingPlanet } from '@/components/FloatingPlanet';
 import { InteractiveParticles } from '@/components/InteractiveParticles';
+import { MatrixRain } from '@/components/MatrixRain';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -40,6 +41,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-x-hidden">
+      <MatrixRain />
       <StarField />
       <InteractiveParticles />
       
