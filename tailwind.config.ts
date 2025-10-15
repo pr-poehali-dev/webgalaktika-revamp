@@ -20,6 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Nunito', 'sans-serif'],
+				galaktika: ['Galaktika', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
