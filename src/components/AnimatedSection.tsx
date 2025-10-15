@@ -13,19 +13,21 @@ export const AnimatedSection = ({ children, delay = 0 }: AnimatedSectionProps) =
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), delay * 1000);
+          const timeout = setTimeout(() => setIsVisible(true), delay * 1000);
+          return () => clearTimeout(timeout);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: '50px' }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [delay]);
@@ -33,8 +35,8 @@ export const AnimatedSection = ({ children, delay = 0 }: AnimatedSectionProps) =
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      className={`transition-all duration-700 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
       {children}

@@ -39,21 +39,21 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0A0A1F] via-[#1a0a2e] to-[#0A0A1F] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-x-hidden">
       <StarField />
       <InteractiveParticles />
       
       <div className="fixed inset-0 pointer-events-none z-0">
-        <FloatingPlanet color="#FF00FF" size={120} x={8} y={15} delay={0} />
-        <FloatingPlanet color="#7B2FFF" size={80} x={88} y={20} delay={2} />
-        <FloatingPlanet color="#00FFFF" size={100} x={80} y={65} delay={4} />
-        <FloatingPlanet color="#FF00FF" size={90} x={5} y={70} delay={1} />
+        <FloatingPlanet color="#00FF41" size={120} x={8} y={15} delay={0} />
+        <FloatingPlanet color="#00CC33" size={80} x={88} y={20} delay={2} />
+        <FloatingPlanet color="#39FF14" size={100} x={80} y={65} delay={4} />
+        <FloatingPlanet color="#00FF41" size={90} x={5} y={70} delay={1} />
       </div>
 
       <div
         className="fixed w-12 h-12 rounded-full pointer-events-none z-50 mix-blend-screen transition-all duration-200"
         style={{
-          background: 'radial-gradient(circle, rgba(255,0,255,0.6), rgba(123,47,255,0.3), transparent)',
+          background: 'radial-gradient(circle, rgba(0, 255, 65, 0.6), rgba(0, 204, 51, 0.3), transparent)',
           left: mousePosition.x - 24,
           top: mousePosition.y - 24,
         }}
@@ -78,88 +78,21 @@ export default function Index() {
       <Footer />
 
       <style>{`
-        @keyframes float-slow {
-          0%, 100% {
-            transform: translateY(0) rotateX(0deg);
-          }
-          50% {
-            transform: translateY(-30px) rotateX(5deg);
-          }
-        }
-
-        @keyframes float-planet {
-          0%, 100% {
-            transform: translate(0, 0);
-          }
-          50% {
-            transform: translate(20px, -20px);
-          }
-        }
-
-        @keyframes text-glow {
-          0%, 100% {
-            text-shadow: 0 0 20px rgba(255,0,255,0.3), 0 0 40px rgba(123,47,255,0.2);
-          }
-          50% {
-            text-shadow: 0 0 40px rgba(255,0,255,0.6), 0 0 80px rgba(123,47,255,0.4);
-          }
-        }
-
-        @keyframes pulse-glow {
-          0%, 100% {
-            box-shadow: 0 0 20px rgba(255,0,255,0.5), 0 0 40px rgba(123,47,255,0.3);
-          }
-          50% {
-            box-shadow: 0 0 40px rgba(255,0,255,0.8), 0 0 80px rgba(123,47,255,0.6);
-          }
-        }
-
-        @keyframes ripple {
-          0% {
-            transform: scale(0);
-            opacity: 1;
-          }
-          100% {
-            transform: scale(4);
-            opacity: 0;
-          }
-        }
-
-        .animate-float-slow {
-          animation: float-slow 8s ease-in-out infinite;
-        }
-
-        .animate-float-planet {
-          animation: float-planet 10s ease-in-out infinite;
-        }
-
-        .animate-text-glow {
-          animation: text-glow 4s ease-in-out infinite;
-        }
-
-        .animate-pulse-glow {
-          animation: pulse-glow 3s ease-in-out infinite;
-        }
-
-        .animate-ripple {
-          animation: ripple 0.6s ease-out;
-        }
-
         ::-webkit-scrollbar {
           width: 10px;
         }
 
         ::-webkit-scrollbar-track {
-          background: #0A0A1F;
+          background: #000;
         }
 
         ::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #FF00FF, #7B2FFF);
+          background: linear-gradient(to bottom, #00FF41, #00CC33);
           border-radius: 5px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #FF00FF, #00FFFF);
+          background: linear-gradient(to bottom, #00FF41, #39FF14);
         }
       `}</style>
     </div>

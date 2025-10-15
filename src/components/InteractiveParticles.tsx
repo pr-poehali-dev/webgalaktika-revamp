@@ -25,55 +25,71 @@ export const InteractiveParticles = () => {
     let mouseX = 0;
     let mouseY = 0;
 
-    const colors = ['#FF00FF', '#7B2FFF', '#00FFFF'];
+    const colors = ['#00FF41', '#00CC33', '#39FF14'];
+    let lastMouseMove = 0;
+    const throttleDelay = 16;
 
     const handleMouseMove = (e: MouseEvent) => {
+      const now = Date.now();
+      if (now - lastMouseMove < throttleDelay) return;
+      lastMouseMove = now;
+
       mouseX = e.clientX;
       mouseY = e.clientY;
 
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 2; i++) {
         particles.push({
           x: mouseX,
           y: mouseY,
           vx: (Math.random() - 0.5) * 2,
           vy: (Math.random() - 0.5) * 2,
-          size: Math.random() * 4 + 2,
+          size: Math.random() * 3 + 1,
           color: colors[Math.floor(Math.random() * colors.length)],
         });
       }
 
-      if (particles.length > 100) {
-        particles.splice(0, particles.length - 100);
+      if (particles.length > 60) {
+        particles.splice(0, particles.length - 60);
       }
     };
 
     let animationId: number;
+    let lastTime = 0;
+    const fps = 30;
+    const frameInterval = 1000 / fps;
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const animate = (currentTime: number) => {
+      const deltaTime = currentTime - lastTime;
+      
+      if (deltaTime >= frameInterval) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach((particle, index) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        particle.size *= 0.98;
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const particle = particles[i];
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          particle.size *= 0.96;
 
-        if (particle.size < 0.5) {
-          particles.splice(index, 1);
-          return;
+          if (particle.size < 0.5) {
+            particles.splice(i, 1);
+            continue;
+          }
+
+          ctx.beginPath();
+          ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+          ctx.fillStyle = particle.color;
+          ctx.globalAlpha = 0.5;
+          ctx.fill();
+          ctx.globalAlpha = 1;
         }
 
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = particle.color;
-        ctx.globalAlpha = 0.6;
-        ctx.fill();
-        ctx.globalAlpha = 1;
-      });
+        lastTime = currentTime;
+      }
 
       animationId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animate(0);
 
     window.addEventListener('mousemove', handleMouseMove);
 
