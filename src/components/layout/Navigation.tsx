@@ -12,9 +12,12 @@ export const Navigation = ({ isMenuOpen, setIsMenuOpen, scrollToSection }: Navig
     <nav className="fixed top-0 w-full z-40 backdrop-blur-md bg-black/80 border-b border-[#00FF41]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center space-x-3 hover:scale-105 transition-transform cursor-pointer group">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00FF41] to-[#00CC33] animate-pulse-glow group-hover:animate-spin" />
-            <span className="text-xl tracking-wider font-bold">WEBGALAKTIKA</span>
+          <div className="flex items-center hover:scale-105 transition-transform cursor-pointer">
+            <img 
+              src="https://cdn.poehali.dev/files/64e8e098-d330-4720-86e3-24b2d1b0c081.png" 
+              alt="WebGalaktika" 
+              className="h-12 w-auto"
+            />
           </div>
 
           <div className="hidden md:flex space-x-8">
