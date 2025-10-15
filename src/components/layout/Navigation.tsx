@@ -20,7 +20,7 @@ export const Navigation = ({ isMenuOpen, setIsMenuOpen, scrollToSection }: Navig
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="text-xl tracking-wider font-galaktika">WEBGALAKTIKA</span>
+            <span className="text-2xl tracking-wider font-galaktika">WEBGALAKTIKA</span>
           </div>
 
           <div className="hidden md:flex space-x-8">

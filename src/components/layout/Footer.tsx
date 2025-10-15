@@ -11,7 +11,7 @@ export const Footer = () => {
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="text-lg tracking-wider font-galaktika">WEBGALAKTIKA</span>
+            <span className="text-xl tracking-wider font-galaktika">WEBGALAKTIKA</span>
           </div>
 
           <p className="text-gray-400 text-sm">
